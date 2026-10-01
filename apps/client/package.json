@@ -1,0 +1,39 @@
+{
+  "name": "@kubiki/client",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Клиент Kubiki: Vite + React 18 + Tailwind CSS + daisyUI",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "clean": "rimraf dist .turbo .tsbuildinfo.app .tsbuildinfo.node",
+    "lint": "eslint src --ext .ts,.tsx",
+    "typecheck": "tsc -b",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@kubiki/core": "workspace:*",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@testing-library/dom": "10.4.0",
+    "@testing-library/react": "^16.1.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.19",
+    "daisyui": "^4.12.10",
+    "eslint": "^8.57.0",
+    "jsdom": "^25.0.0",
+    "postcss": "^8.4.39",
+    "rimraf": "^5.0.0",
+    "tailwindcss": "^3.4.6",
+    "typescript": "^5.4.0",
+    "vite": "^7.0.0",
+    "vitest": "^3.2.0"
+  }
+}

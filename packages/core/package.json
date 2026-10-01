@@ -1,0 +1,28 @@
+{
+  "name": "@kubiki/core",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Общие контракты клиента и сервера Kubiki: zod-схемы и типы API",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -b",
+    "dev": "tsc -b --watch",
+    "clean": "rimraf dist .turbo .tsbuildinfo",
+    "lint": "eslint src --ext .ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "rimraf": "^5.0.0",
+    "typescript": "^5.4.0",
+    "vitest": "^3.2.0"
+  }
+}

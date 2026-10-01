@@ -1,0 +1,61 @@
+/* eslint-env node */
+/**
+ * Единая конфигурация ESLint для монорепо (apps/*, packages/*).
+ * Запуск: `yarn lint` (через turbo) или `yarn workspace @kubiki/client lint`.
+ */
+const unusedVarsRule = [
+  'error',
+  { argsIgnorePattern: '^_', caughtErrors: 'none', varsIgnorePattern: '^_' },
+];
+
+module.exports = {
+  root: true,
+  ignorePatterns: [
+    '**/dist/**',
+    '**/node_modules/**',
+    '**/build/**',
+    '**/coverage/**',
+    '.yarn/**',
+    '**/.turbo/**',
+    '**/*.min.js',
+  ],
+  overrides: [
+    {
+      files: ['**/*.{ts,mts,cts}'],
+      parser: '@typescript-eslint/parser',
+      parserOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+      },
+      plugins: ['@typescript-eslint'],
+      extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
+      rules: {
+        '@typescript-eslint/no-unused-vars': unusedVarsRule,
+        '@typescript-eslint/no-explicit-any': 'error',
+      },
+    },
+    {
+      files: ['**/*.{tsx,jsx}'],
+      parser: '@typescript-eslint/parser',
+      parserOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+        ecmaFeatures: { jsx: true },
+      },
+      plugins: ['@typescript-eslint', 'react', 'react-hooks'],
+      extends: [
+        'eslint:recommended',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:react/recommended',
+        'plugin:react-hooks/recommended',
+      ],
+      settings: { react: { version: 'detect' } },
+      rules: {
+        'react/react-in-jsx-scope': 'off',
+        'react/prop-types': 'off',
+        '@typescript-eslint/no-unused-vars': unusedVarsRule,
+        '@typescript-eslint/no-explicit-any': 'error',
+      },
+    },
+  ],
+};
